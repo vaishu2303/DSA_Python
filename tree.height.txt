@@ -1,0 +1,21 @@
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+def tree_height(root):
+    if not root:
+        return 0
+    return 1 + max(tree_height(root.left), tree_height(root.right))
+
+root = TreeNode(1)
+node2 = TreeNode(2)
+node3 = TreeNode(3)
+node4 = TreeNode(4)
+node5 = TreeNode(5)
+
+root.left = node2
+root.right = node3
+node2.left = node4
+node2.right =node5
+print(tree_height(root)) #3
